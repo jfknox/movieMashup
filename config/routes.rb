@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
-  get 'stories/new'
-
-  get 'stories/edit'
-
-  get 'stories/show'
-
-  get 'stories/index'
-
-  get 'posters/new'
-
-  get 'posters/edit'
-
-  get 'posters/show'
-
-  get 'posters/index'
+  resources :stories
+  resources :posters
 
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
