@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+posters = Poster.create([{image_url:"", user_uid:"", blurb:"", title1:"", title2:"", mash_title:""},
+	{image_url:"", user_uid:"", blurb:"", title1:"", title2:"", mash_title:""},
+	{image_url:"", user_uid:"", blurb:"", title1:"", title2:"", mash_title:""}])
+
+stories = Story.create([{title1:"", title2:"", mash_title:"", content:"", user_uid:""},
+	{title1:"", title2:"", mash_title:"", content:"", user_uid:""},
+	{title1:"", title2:"", mash_title:"", content:"", user_uid:""}])
