@@ -1,5 +1,6 @@
 class PostersController < ApplicationController
   def new
+  	
   end
 
   def edit
