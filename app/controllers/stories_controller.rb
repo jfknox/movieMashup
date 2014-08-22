@@ -1,7 +1,9 @@
 class StoriesController < ApplicationController
 	def index
 		@stories = Story.all
-	end
+    @response = http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=guardians+of+the+galaxy&page_limit=10&page=1&apikey=q6ehu3bcz92vd8yqx2m68247
+
+  end
 
 	def show	
 		@story = Story.find(params[:id])

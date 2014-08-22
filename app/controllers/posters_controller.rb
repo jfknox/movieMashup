@@ -5,7 +5,7 @@ class PostersController < ApplicationController
   end
 
   def new
-
+    @poster = Poster.new
   end
 
   def edit
@@ -44,7 +44,7 @@ class PostersController < ApplicationController
 
 		def park_params
 			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :uid)
-		end
+	  end
 
-	end
+
 end
