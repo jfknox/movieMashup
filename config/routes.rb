@@ -14,7 +14,7 @@ resources :sessions, only: [:new, :create, :destroy]
 
 get 'signin' => 'sessions#new', as: :signin
 post 'signin' => 'sessions#create'
-delete 'signout' => 'sessions#destroy', as: :signout
+# delete 'signout' => 'sessions#destroy', as: :signout
   
 
   # The priority is based upon order of creation: first created -> highest priority.
