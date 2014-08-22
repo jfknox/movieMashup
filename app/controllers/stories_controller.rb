@@ -1,0 +1,52 @@
+class StoriesController < ApplicationController
+	def index
+		@stories = Story.all
+    @response = http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=guardians+of+the+galaxy&page_limit=10&page=1&apikey=q6ehu3bcz92vd8yqx2m68247
+
+  end
+
+	def show	
+		@story = Story.find(params[:id])
+	end
+
+	def new	
+		@story = Story.new
+	end
+
+	def create
+		@story = Story.new(story_params)
+
+		if @story.save
+			@stories = Story.all
+			redirect_to @story
+		else
+			redirect_to "new"
+		end
+	end
+
+	def edit
+		@story = Story.find(params[:id])
+	end
+
+	def update
+		@story = Story.find(params[:id])
+		if @story.update_attributes(story_params)
+			redirect_to @story
+		else
+			render "edit"
+		end
+	end
+
+	def destroy
+		@story = Story.find(params[:id])
+		@story.destroy
+		redirect_to stories_path
+	end
+
+	private
+		def story_params
+			params.require(:comment).permit(:title1, :title2, :mash_title, :content, :user_uid_id, :created_at)
+		end
+
+end
+

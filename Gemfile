@@ -35,7 +35,7 @@ gem 'spring',        group: :development
 # Bootstrap
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 
-gem "figaro"
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,3 +48,4 @@ gem 'rails_12factor', group: :production
 ruby '2.1.2'
 # For production
 gem 'thin', group: :production
+gem 'httparty', '0.11.0'
