@@ -12,9 +12,9 @@ root 'sessions#new'
 resources :users, only: [:show, :edit, :update, :destroy]
 resources :sessions, only: [:new, :create, :destroy]
 
-get 'signin' => 'sessions#new', as: :signin
-post 'signin' => 'sessions#create'
-delete 'signout' => 'sessions#destroy', as: :signout
+# get 'signin' => 'sessions#new', as: :signin
+# post 'signin' => 'sessions#create'
+# delete 'signout' => 'sessions#destroy', as: :signout
   
 
   # The priority is based upon order of creation: first created -> highest priority.
