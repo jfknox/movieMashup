@@ -14,15 +14,15 @@ class PostersController < ApplicationController
 
   def create
   	@poster = current_user.posters.new(poster_params)
-		if @park.save
-			redirect_to parks_path	
+		if poster.save
+			redirect_to poster_path
 		else
       		render :action => 'new'
     end
   end
 
   def show
-  	@park = Poster.find params[:id]
+  	poster = Poster.find params[:id]
   end
 
   def update
@@ -42,9 +42,8 @@ class PostersController < ApplicationController
 
 	private
 
-		def park_params
+		def poster_params
 			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :uid)
 		end
 
 	end
-end
