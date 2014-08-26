@@ -1,8 +1,6 @@
 class StoriesController < ApplicationController
 	def index
 		@stories = Story.all
-    @response = http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=guardians+of+the+galaxy&page_limit=10&page=1&apikey=q6ehu3bcz92vd8yqx2m68247
-
   end
 
 	def show	
@@ -11,6 +9,8 @@ class StoriesController < ApplicationController
 
 	def new	
 		@story = Story.new
+		
+  end
 	end
 
 	def create
@@ -45,8 +45,7 @@ class StoriesController < ApplicationController
 
 	private
 		def story_params
-			params.require(:comment).permit(:title1, :title2, :mash_title, :content, :user_uid_id, :created_at)
+			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_uid)
 		end
 
-end
 

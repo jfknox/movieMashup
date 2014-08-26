@@ -22,4 +22,35 @@
 .login{
 	height: 50px;
 	width: 300px;
+    color: #235A32
+}
+
+/*************************************
+**********Navbar
+**************************************/
+.fb_login {
+	height: 34px;
+	width:125px;
+	margin-top: 8px;
+	font-size: 10px;
+}
+
+.fb_logout {
+	height: 34px;
+	width:125px;
+	margin-top: 15px;
+	font-size: 10px;
+	margin-right: 5px;
+}
+
+.prof_pic {
+	position: absolute;
+	float: left;
+	clear: both;
+	height: 30px;
+	margin-left: 5px;
+}
+
+.fb_widget {
+	color: #FFFFFF;
 }

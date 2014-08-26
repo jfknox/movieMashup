@@ -18,27 +18,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" <%= link_to "Home", root_path, {:style=>'color:#FFFFFF;', :class => "css_class"}%> </a> 
     </div>
+<%= render 'layouts/new_s' %>
+<%= render 'layouts/new_p' %>
+
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
+        <li><%= link_to "Stories", stories_path%> <p></li>
+        <li><%= link_to "Posters", posters_path%> <p></li>
+
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create New <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
+            
+            <li>
+              <%= link_to "New Poster", "#poster_modal", "data-toggle" => "modal" %>
+            </li> 
+            
+            <li>
+               <%= link_to "New story", "#story_modal", "data-toggle" => "modal" %>
+            </li>
+            
+           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-right" role="search">
+        <% if current_user %>
+             <%= image_tag current_user.info["info"]["image"] %>
+
+        <% end %>
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
@@ -46,18 +57,17 @@
 
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <div id="user-widget">
+       
+
+        <div id="user-widget" class="fb_widget">
           <% if current_user %>
               Welcome <strong><%= current_user.name %></strong>!
-              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+              <button class="login btn btn-primary fb_logout"><%= link_to "Sign Out", signout_path, {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
           <% else %>
-              <button class="login"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></button>
+              <button class="login btn btn-primary fb_login"><%= link_to "Sign in with Facebook", "/auth/facebook", {:style=>'color:#FFFFFF;', :class => "css_class"} %></button>
           <% end %>
         </div>
-        <% if current_user %>
-            <%= current_user.info %>
-
-        <% end %>
+       
 
       </ul>
     </div>
@@ -66,6 +76,8 @@
   <!-- /.container-fluid -->
 
 </nav>
+
+
 
 
 <%= yield %>
