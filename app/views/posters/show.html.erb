@@ -1,2 +1,36 @@
-<h1>Posters#show</h1>
-<p>Find me in app/views/posters/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @poster.image_url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @poster.user_id %>
+</p>
+
+<p>
+  <strong>Blurb:</strong>
+  <%= @poster.blurb %>
+</p>
+
+<p>
+  <strong>Title1:</strong>
+  <%= @poster.title1 %>
+</p>
+
+<p>
+  <strong>Title2:</strong>
+  <%= @poster.title2 %>
+</p>
+
+<p>
+  <strong>Mash title:</strong>
+  <%= @poster.mash_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_poster_path(@poster) %> |
+<%= link_to 'Back', posters_path %>

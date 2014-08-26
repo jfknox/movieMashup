@@ -14,4 +14,6 @@ class SessionsController < ApplicationController
 		@posters = Poster.all
 		@stories = Story.all
 	end
+
+	
 end

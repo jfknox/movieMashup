@@ -3,6 +3,7 @@ class PostersController < ApplicationController
   def index
   	@posters = Poster.all
   end
+  end
 
   def new
     @poster = Poster.new
@@ -43,9 +44,8 @@ class PostersController < ApplicationController
 	private
 
 		def poster_params
-			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :uid)
+			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :user_id)
+
 	  end
 
-
-	end
 

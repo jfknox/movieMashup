@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140821010132) do
     t.integer  "story_id"
     t.integer  "poster_id"
     t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "updated_at" 
   end
 
   add_index "comments", ["poster_id"], name: "index_comments_on_poster_id", using: :btree

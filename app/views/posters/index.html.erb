@@ -1,2 +1,35 @@
-<h1>Posters#index</h1>
-<p>Find me in app/views/posters/index.html.erb</p>
+<h1>Listing posters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image url</th>
+      <th>User</th>
+      <th>Blurb</th>
+      <th>Title1</th>
+      <th>Title2</th>
+      <th>Mash title</th>
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posters.each do |poster| %>
+      <tr>
+        <td><%= poster.image_url %></td>
+        <td><%= poster.user_id %></td>
+        <td><%= poster.blurb %></td>
+        <td><%= poster.title1 %></td>
+        <td><%= poster.title2 %></td>
+        <td><%= poster.mash_title %></td>
+        <td><%= link_to 'Show', poster %></td>
+        <td><%= link_to 'Edit', edit_poster_path(poster) %></td>
+        <td><%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
