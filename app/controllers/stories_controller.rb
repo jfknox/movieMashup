@@ -7,11 +7,11 @@ class StoriesController < ApplicationController
 		@story = Story.find(params[:id])
 	end
 
-	def new	
+	def new	 
 		@story = Story.new
 		
   end
-	end
+
 
 	def create
 		@story = Story.new(story_params)
@@ -45,7 +45,9 @@ class StoriesController < ApplicationController
 
 	private
 		def story_params
-			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_uid)
-		end
+			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id)
+    end
+
+  end
 
 

@@ -3,7 +3,7 @@ class PostersController < ApplicationController
   def index
   	@posters = Poster.all
   end
-  end
+
 
   def new
     @poster = Poster.new
@@ -14,16 +14,17 @@ class PostersController < ApplicationController
   end
 
   def create
-  	@poster = current_user.posters.new(poster_params)
-		if poster.save
-			redirect_to poster_path
-		else
-      		render :action => 'new'
+    @poster = user.posters.new(poster_params)
+    if @poster.save
+      @posters = Poster.all
+      redirect_to @poster
+    else
+      redirect_to "new"
     end
   end
 
   def show
-  	poster = Poster.find params[:id]
+  	@poster = Poster.find (params[:id])
   end
 
   def update
@@ -44,8 +45,8 @@ class PostersController < ApplicationController
 	private
 
 		def poster_params
-			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :user_id)
+			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :user_id, :image_url)
 
 	  end
 
-
+end
