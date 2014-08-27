@@ -1,4 +1,28 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
 
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>content:</strong>
+  <%= @story.content %>
+</p>
+
+<p>
+  <strong>Title1:</strong>
+  <%= @story.title1 %>
+</p>
+
+<p>
+  <strong>Title2:</strong>
+  <%= @story.title2 %>
+</p>
+
+<p>
+  <strong>Mash title:</strong>
+  <%= @story.mash_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
 

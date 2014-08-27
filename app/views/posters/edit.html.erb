@@ -1,2 +1,34 @@
-<h1>Posters#edit</h1>
-<p>Find me in app/views/posters/edit.html.erb</p>
+
+<h1>Editing poster</h1> 
+
+<%= form_for(@poster) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :blurb %><br>
+    <%= f.text_field :blurb %>
+  </div>
+  <div class="field">
+    <%= f.label :title1 %><br>
+    <%= f.text_field :title1 %>
+  </div>
+  <div class="field">
+    <%= f.label :title2 %><br>
+    <%= f.text_field :title2 %>
+  </div>
+  <div class="field">
+    <%= f.label :mash_title %><br>
+    <%= f.text_field :mash_title %>
+  </div>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %> 
+
+<%= link_to 'Show', @poster %> |
+<%= link_to 'Back', posters_path %>

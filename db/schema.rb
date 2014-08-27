@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821010132) do
+ActiveRecord::Schema.define(version: 20140827231436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140821010132) do
     t.integer  "poster_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["poster_id"], name: "index_comments_on_poster_id", using: :btree
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140821010132) do
 
   create_table "posters", force: true do |t|
     t.string   "image_url"
-    t.integer  "user_uid"
+    t.integer  "user_id"
     t.string   "blurb"
     t.string   "title1"
     t.string   "title2"
@@ -38,19 +39,19 @@ ActiveRecord::Schema.define(version: 20140821010132) do
     t.datetime "updated_at"
   end
 
-  add_index "posters", ["user_uid"], name: "index_posters_on_user_uid", using: :btree
+  add_index "posters", ["user_id"], name: "index_posters_on_user_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.string   "title1"
     t.string   "title2"
     t.string   "mash_title"
     t.text     "content"
-    t.integer  "user_uid"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "stories", ["user_uid"], name: "index_stories_on_user_uid", using: :btree
+  add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"
