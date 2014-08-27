@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
 
 
 	def create
-		@story = Story.new(story_params)
+		@story = current_user.stories.new(story_params)
 
 		if @story.save
 			@stories = Story.all

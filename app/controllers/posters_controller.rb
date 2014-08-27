@@ -14,7 +14,7 @@ class PostersController < ApplicationController
   end
 
   def create
-    @poster = user.posters.new(poster_params)
+    @poster = current_user.posters.new(poster_params)
     if @poster.save
       @posters = Poster.all
       redirect_to @poster
@@ -45,7 +45,7 @@ class PostersController < ApplicationController
 	private
 
 		def poster_params
-			params.require(:poster).permit(:title1, :title2, :mash_title, :content, :user_id, :image_url)
+			params.require(:poster).permit(:title1, :title2, :mash_title, :blurb, :user_id, :image_url)
 
 	  end
 

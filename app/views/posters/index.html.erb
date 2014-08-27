@@ -16,7 +16,7 @@
   <tbody>
     <% @posters.each do |poster| %>
       <tr>
-        <td><%= poster.image_url %></td>
+        <td><%= link_to image_tag(poster.image_url) %></td>
         <td><%= poster.blurb %></td>
         <td><%= poster.title1 %></td>
         <td><%= poster.title2 %></td>
