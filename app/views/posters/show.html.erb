@@ -1,7 +1,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
+
+
   <strong>Image url:</strong>
   <%= link_to image_tag(@poster.image_url) %>
 </p> 
@@ -33,4 +34,6 @@
 
 
 <%= link_to 'Edit', edit_poster_path(@poster) %> |
-<%= link_to 'Back', posters_path %>
+<%= link_to 'Back', posters_path %> |
+
+  <%= render 'comments/comments' %>

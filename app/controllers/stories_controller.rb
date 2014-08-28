@@ -1,7 +1,10 @@
 class StoriesController < ApplicationController
+	before_filter :empty_story, only: [:index, :show, :edit, :new]
+	before_filter :empty_poster, only: [:index, :show, :edit, :new]
+
 	def index
 		@stories = Story.all
-  end
+  	end
 
 	def show	
 		@story = Story.find(params[:id])
@@ -10,7 +13,7 @@ class StoriesController < ApplicationController
 	def new	 
 		@story = Story.new
 		
-  end
+  	end
 
 
 	def create
@@ -47,6 +50,8 @@ class StoriesController < ApplicationController
 		def story_params
 			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id)
     end
+
+  
 
   end
 

@@ -1,38 +1,39 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+<!doctype html>
+<!--[if lte IE 9]><html class="ie" lang="en"><script src="js/html5shiv.js"></script><![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+<head>
+<title>Flip Carousel</title>
+<script src="jquery-1.8.1.min.js"></script>
+<script src="html5shiv.js"></script>
+<script src="flip-carousel.js"></script>
+<link href="foundation-icons.css" rel="stylesheet">
+<link href="flip-carousel.css" rel="stylesheet">
+</head>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
+<body>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
+<article title="item1"><h1>Item 1</h1><img class="make-image-big" src="http://www.bitrebels.com/wp-content/uploads/2011/10/Star-Wars-Mashup-Movie-Posters-8.jpg"><span>$123</span></article>
+<article title="item2"><h1>Item 2</h1><span>$980</span></article>
+<article title="item3"><h1>Item 3</h1><span>$67</span></article>
+<article title="item4"><h1>Item 4</h1><span>$13</span></article>
+<article title="item5"><h1>Item 5</h1><span>$134</span></article>
+<article title="item6"><h1>Item 6</h1><span>$456</span></article>
+<article title="item7"><h1>Item 7</h1><span>$99</span>quotes</article>
+<article title="item8"><h1>Item 8</h1><span>$92</span></article>
+<article title="item9"><h1>Item 9</h1><span>$3</span></article>
+<article title="item10"><h1>Item 10</h1><span>$12</span></article>
+<article title="item11"><h1>Item 11</h1><span>(last)</span></article>
 
-<hr/>
+<script>
+  $('article').flipcarousel({
+    pagination : false,
+    loader : true,
+    itemsperpage: 5,
+    randomizer: 0.7
+  });
+</script>
+
+  <hr/>
 
 <div class="new_stories">
   <div id="story1">
@@ -48,3 +49,6 @@
     <div class="story_content"><%= @stories[2].content %></div>
   </div>
 </div>
+    
+</body>
+</html> 

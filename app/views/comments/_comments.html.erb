@@ -1,0 +1,10 @@
+	<%= form_for Comment.new do |f| %>
+		  <div class="new_field"><%= f.label :content %>: </div>
+		  <div class="new_input"><%= f.text_area :content, :rows => 15, :cols => 150 %><br/> </div>
+
+		  
+
+		  <br/>
+		  <div id="sub_input"> <%= f.submit %></div> <br/>
+		<% end %>
+

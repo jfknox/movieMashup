@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.new(comment_params)
+		@comment = current_user.comments.new(comment_params)
 
 		if @comment.save
 			@comments = Comment.all
@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
 
 	private
 		def comment_params
-			params.require(:comment).permit(:story_id, :poster_id, :created_at)
+			params.require(:comment).permit(:story_id, :poster_id, :content, :user_id)
 		end
 
 end

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   include PostersHelper
 
   include StoriesHelper
-
+  include CommentsHelper
 
   private
   def current_user
