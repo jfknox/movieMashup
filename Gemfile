@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+    source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,3 +49,4 @@ ruby '2.1.2'
 # For production
 gem 'thin', group: :production
 gem 'httparty', '0.11.0'
+gem 'randumb'

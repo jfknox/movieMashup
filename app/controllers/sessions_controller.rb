@@ -11,8 +11,10 @@ class SessionsController < ApplicationController
 	end
 
 	
-
-	
+	def new
+		@stories = Story.order_by_rand.limit(3).all
+		@posters = Poster.order_by_rand.limit(3).all
+	end		
 
 	
 end
