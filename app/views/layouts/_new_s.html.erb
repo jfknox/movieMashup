@@ -6,25 +6,19 @@
         <h4 class="modal-title" id="myModalLabel">New Story</h4>
       </div>
       <div class="modal-body">
+        <%= form_for @new_story do |f| %>
 
-
-
-          <%= form_for Story.new do |f| %>
-
-            <div class="new_field"><%= f.label :title1 %>: </div>
-            <div class="new_input"><%= f.text_field :title1 %><br/>  </div>
-            <div class="new_field"><%= f.label :title2 %>: </div>
-            <div class="new_input"><%= f.text_field :title2 %><br/>  </div>
-            <div class="new_field"><%= f.label :mash_title %>: </div>
-            <div class="new_input"><%= f.text_field :mash_title %><br/>  </div>
-            <div class="new_field"><%= f.label :content %>: </div>
-            <div class="new_input"><%= f.text_field :content %><br/>  </div>
-            <br/>
-            <div id="sub_input"> <%= f.submit %></div> <br/>
-          <% end %>
-
-
-
+          <div class="new_field"><%= f.label :title1 %>: </div>
+          <div class="new_input"><%= f.text_field :title1 %><br/>  </div>
+          <div class="new_field"><%= f.label :title2 %>: </div>
+          <div class="new_input"><%= f.text_field :title2 %><br/>  </div>
+          <div class="new_field"><%= f.label :mash_title %>: </div>
+          <div class="new_input"><%= f.text_field :mash_title %><br/>  </div>
+          <div class="new_field"><%= f.label :content %>: </div>
+          <div class="new_input"><%= f.text_field :content %><br/>  </div>
+          <br/>
+          <div id="sub_input"> <%= f.submit %></div> <br/>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -5,7 +5,7 @@
 	display:block;
 	overflow:hidden;
 	position:relative;
-	padding: 70px 10px;
+	padding: 30px 10px;
 	text-align: center;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .flip-carousel > ul > li{
-	width: 200px;
+	width: 275px;
 	margin: 10px;
 	padding:0;
 	display: inline-block;
@@ -42,7 +42,7 @@
 	-ms-transition: 0.5s;
 	transform-style: preserve-3d;
 	transition: 0.5s;
-	height:300px;
+	height:400px;
 }
 .flip-carousel .face {
 	position: absolute;
@@ -212,27 +212,21 @@ html, body{
 	height:100%;
 }
 body{
-	background: #606c88;
-	background: -moz-radial-gradient(center, ellipse cover,  #606c88 0%, #3f4c6b 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#606c88), color-stop(100%,#3f4c6b));
-	background: -webkit-radial-gradient(center, ellipse cover,  #606c88 0%,#3f4c6b 100%);
-	background: -o-radial-gradient(center, ellipse cover,  #606c88 0%,#3f4c6b 100%);
-	background: -ms-radial-gradient(center, ellipse cover,  #606c88 0%,#3f4c6b 100%);
-	background: radial-gradient(ellipse at center,  #606c88 0%,#3f4c6b 100%);
+	background: #000;
 	font-family: arial, sans-serif;
 }
 
 
 article {
-	height: 260px;
+	height: 420px;
 	text-align:center;
-	padding: 20px;
+	padding: 10px;
 	box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
 	color:#FFF;
 }
 article img{
-	max-width: 160px;
-	max-height: 130px;
+	width: 90%;
+	/*max-height: 130px;*/
 	padding:0;
 }
 article img.err{ /* applied when image does not load */

@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include PostersHelper
-
   include StoriesHelper
   include CommentsHelper
 

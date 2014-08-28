@@ -11,44 +11,46 @@
 </head>
 
 <body>
-
-<article title="item1"><h1>Item 1</h1><img class="make-image-big" src="http://www.bitrebels.com/wp-content/uploads/2011/10/Star-Wars-Mashup-Movie-Posters-8.jpg"><span>$123</span></article>
-<article title="item2"><h1>Item 2</h1><span>$980</span></article>
-<article title="item3"><h1>Item 3</h1><span>$67</span></article>
-<article title="item4"><h1>Item 4</h1><span>$13</span></article>
-<article title="item5"><h1>Item 5</h1><span>$134</span></article>
-<article title="item6"><h1>Item 6</h1><span>$456</span></article>
-<article title="item7"><h1>Item 7</h1><span>$99</span>quotes</article>
-<article title="item8"><h1>Item 8</h1><span>$92</span></article>
-<article title="item9"><h1>Item 9</h1><span>$3</span></article>
-<article title="item10"><h1>Item 10</h1><span>$12</span></article>
-<article title="item11"><h1>Item 11</h1><span>(last)</span></article>
+  <h1 class="landing_title">Mash-Up Posters</h1>
+  <article title="item1"><h1></h1><span><%= image_tag(@posters[0].image_url) %></span></article>
+  <article title="item2"><h1></h1><span><%= image_tag(@posters[1].image_url) %></span></article>
+  <article title="item3"><h1></h1><span><%= image_tag(@posters[2].image_url) %></span></article>
+  <article title="item4"><h1></h1><span><%= image_tag(@posters[3].image_url) %></span></article>
+  <article title="item5"><h1></h1><span><%= image_tag(@posters[4].image_url) %></span></article>
+  <article title="item6"><h1></h1><span><%= image_tag(@posters[5].image_url) %></span></article>
+  <article title="item7"><h1></h1><span><%= image_tag(@posters[6].image_url) %></span></article>
+  <article title="item8"><h1></h1><span><%= image_tag(@posters[7].image_url) %></span></article>
+  <article title="item9"><h1></h1><span><%= image_tag(@posters[8].image_url) %></span></article>
+  <article title="item10"><h1></h1><span><%= image_tag(@posters[9].image_url) %></span></article>
 
 <script>
   $('article').flipcarousel({
     pagination : false,
     loader : true,
-    itemsperpage: 5,
+    itemsperpage: 4,
     randomizer: 0.7
   });
 </script>
 
-  <hr/>
-
-<div class="new_stories">
-  <div id="story1">
-    <div class="story_title"><%= @stories[0].mash_title %></div>
-    <div class="story_content"><%= @stories[0].content %></div>
+  <hr/ class="landing_divider">
+  <h1 class="landing_title">Mash-Up Stories</h1>
+  <div class="landing_stories">
+    <div class="landing_story">
+      <div class="story_title"><%= @stories[0].mash_title %></div>
+      <hr/ class="landing_divider">
+      <div class="story_content"><%= @stories[0].content %></div>
+    </div>
+    <div class="landing_story">
+      <div class="story_title"><%= @stories[1].mash_title %></div>
+      <hr/ class="landing_divider">
+      <div class="story_content"><%= @stories[1].content %></div>
+    </div>
+    <div class="landing_story">
+      <div class="story_title"><%= @stories[2].mash_title %></div>
+      <hr/ class="landing_divider">
+      <div class="story_content"><%= @stories[2].content %></div>
+    </div>
   </div>
-  <div id="story2">
-    <div class="story_title"><%= @stories[1].mash_title %></div>
-    <div class="story_content"><%= @stories[1].content %></div>
-  </div>
-  <div id="story3">
-    <div class="story_title"><%= @stories[2].mash_title %></div>
-    <div class="story_content"><%= @stories[2].content %></div>
-  </div>
-</div>
     
 </body>
 </html> 

@@ -27,7 +27,7 @@
 }
 
 /*************************************
-**********Navbar
+NAVBAR
 **************************************/
 .fb_login {
 	height: 34px;
@@ -45,11 +45,9 @@
 }
 
 .prof_pic {
-	position: absolute;
-	float: left;
-	clear: both;
-	height: 30px;
-	margin-left: 5px;
+	height: 45px;
+	border-radius: 3px 15px 3px;
+	margin: 5px 10px 5px;
 }
 
 .fb_widget {
@@ -61,9 +59,46 @@
   margin-right: 25px;
   text-decoration: bold;
 }
+
+
 .log{
   padding-left: 20%;
 }
-body{
-	background-color: #000000;
+
+/*************************************
+LANDING PAGE
+**************************************/
+
+.landing_title {
+	text-align: center;
 }
+
+.landing_divider {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+.landing_stories {
+	width: 90%;
+	margin: 40px auto;
+}
+
+.landing_story {
+	display: inline-block;
+	width: 28%;
+	margin: 0 2.5%;
+	vertical-align: top;
+}
+
+.story_title {
+	font-weight: bold;
+}
+
+.story_content {
+
+}
+
