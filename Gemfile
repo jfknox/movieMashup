@@ -49,3 +49,4 @@ ruby '2.1.2'
 # For production
 gem 'thin', group: :production
 gem 'httparty', '0.11.0'
+gem 'randumb'
