@@ -1,14 +1,12 @@
 class PostersController < ApplicationController
-  before_filter :empty_story, only: [:index, :show, :edit, :new]
-  before_filter :empty_poster, only: [:index, :show, :edit, :new]
-
-  helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction, :current_user
   
    
   def index
   	@posters = Poster.search(params[:search]).order(sort_column + " " + sort_direction)
     @asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
     @desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
+    @poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=2")
   end
 
 
@@ -31,14 +29,14 @@ class PostersController < ApplicationController
   end
 
   def show
-  	@poster = Poster.find (params[:id])
+  	@poster = Poster.find(params[:id])
     @commentable = @poster
     @comments = @commentable.comments
     @comment = Comment.new
   end
 
   def update
-		@poster = Poster.find params[:id]
+		@poster = Poster.find(params[:id])
     	if @poster.update_attributes(poster_params)
        	   redirect_to poster_path
     	else
@@ -47,7 +45,7 @@ class PostersController < ApplicationController
 	end
 
 	def destroy
-		@poster = Poster.find params[:id]
+		@poster = Poster.find(params[:id])
     	@poster.destroy
     	redirect_to posters_path
   end

@@ -60,3 +60,4 @@ ruby '2.1.2'
 gem 'thin', group: :production
 gem 'httparty', '0.11.0'
 gem 'randumb'
+gem 'pry'

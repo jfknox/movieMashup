@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
 	def create
 	  user = User.from_omniauth(env["omniauth.auth"])
 	  session[:user_id] = user.id
@@ -14,8 +15,6 @@ class SessionsController < ApplicationController
 	def new
 		@stories = Story.order_by_rand.limit(3).all
 		@posters = Poster.order_by_rand.limit(10).all
-		@new_story = Story.new
-		@new_poster = Poster.new
 	end		
 
 	
