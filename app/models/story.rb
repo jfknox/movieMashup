@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
 	def self.search(search)
     if search
       #case insensitive
-      where('mash_title ILIKE ?', "%#{search}%")
+      where('mash_title @@ ?', search)
 
     else
       all
