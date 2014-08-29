@@ -2,12 +2,16 @@ class StoriesController < ApplicationController
 	before_filter :empty_story, only: [:index, :show, :edit, :new]
 	before_filter :empty_poster, only: [:index, :show, :edit, :new]
 
+
 	def index
 		@stories = Story.all
   	end
 
-	def show	
-		@story = Story.find(params[:id])
+	def show
+	  @story = Story.find(params[:id])
+	  @commentable = @story
+	  @comments = @commentable.comments
+	  @comment = Comment.new
 	end
 
 	def new	 

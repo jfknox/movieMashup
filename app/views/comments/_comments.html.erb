@@ -1,10 +1,36 @@
-	<%= form_for Comment.new do |f| %>
-		  <div class="new_field"><%= f.label :content %>: </div>
-		  <div class="new_input"><%= f.text_area :content, :rows => 15, :cols => 150 %><br/> </div>
+<h1>Comments</h1>
 
-		  
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <%= simple_format comment.content %>
+    </div>
+  <% end %>
+</div>
 
-		  <br/>
-		  <div id="sub_input"> <%= f.submit %></div> <br/>
-		<% end %>
+<p><%= link_to "New Comment", [:new, @commentable, :comment] %></p>
+
+  
+<h1>New Comment</h1>
+
+<%= form_for [@commentable, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_messages">
+      <h2>Please correct the following errors.</h2>
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :content, rows: 8 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 

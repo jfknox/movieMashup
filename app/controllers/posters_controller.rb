@@ -1,4 +1,7 @@
 class PostersController < ApplicationController
+  before_filter :empty_story, only: [:index, :show, :edit, :new]
+  before_filter :empty_poster, only: [:index, :show, :edit, :new]
+  
   
   def index
   	@posters = Poster.all
@@ -25,6 +28,9 @@ class PostersController < ApplicationController
 
   def show
   	@poster = Poster.find (params[:id])
+  @commentable = @poster
+  @comments = @commentable.comments
+  @comment = Comment.new
   end
 
   def update
