@@ -1,5 +1,7 @@
 <h1>Listing stories</h1>
 
+<%= link_to "New story", "#story_modal", "data-toggle" => "modal" %>
+<%= render 'layouts/new_s' %>
 <div>
   <%= form_tag stories_path, method: :get do %>
   <%= hidden_field_tag :direction, params[:direction] %>

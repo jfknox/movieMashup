@@ -1,13 +1,8 @@
 class StoriesController < ApplicationController
-	before_filter :empty_story, only: [:index, :show, :edit, :new]
-	before_filter :empty_poster, only: [:index, :show, :edit, :new]
- 
- 	helper_method :sort_column, :sort_direction
- 
 
 	def index
 		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction)
-		
+		@poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=2")
   end
 
 	def show

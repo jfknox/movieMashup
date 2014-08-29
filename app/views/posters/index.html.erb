@@ -1,11 +1,16 @@
 
 <h1>Mash-Up Posters</h1>
+
 <%= form_tag posters_path, method: :get do %>
   <p>
     <%= text_field_tag :query, params[:query] %>
     <%= submit_tag "Search", mash_title: nil %>
   </p>
 <% end %>
+
+
+<%= link_to "New Poster", "#poster_modal", "data-toggle" => "modal" %>
+<%= render 'layouts/new_p' %>
 
 <hr/>
 <section id="poster_wrapper">

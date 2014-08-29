@@ -59,5 +59,9 @@ ruby '2.1.2'
 gem 'thin', group: :production
 gem 'httparty', '0.11.0'
 gem 'randumb'
+<<<<<<< HEAD
 gem 'textacular', '~> 3.0'
 
+=======
+gem 'pry'
+>>>>>>> 8280fd9fdddfcd117f70c9bb068b0f1fb788cdb4
