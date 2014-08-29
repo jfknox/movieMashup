@@ -7,7 +7,6 @@
       </div>
       <div class="modal-body">
         <%= form_for @new_story do |f| %>
-
           <div class="new_field"><%= f.label :title1 %>: </div>
           <div class="new_input"><%= f.text_field :title1 %><br/>  </div>
           <div class="new_field"><%= f.label :title2 %>: </div>
@@ -21,8 +20,7 @@
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>    
       </div>
     </div>
   </div>

@@ -32,9 +32,9 @@ class PostersController < ApplicationController
 
   def show
   	@poster = Poster.find (params[:id])
-  @commentable = @poster
-  @comments = @commentable.comments
-  @comment = Comment.new
+    @commentable = @poster
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def update

@@ -15,6 +15,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= sortable "user_id", "Submited By" %></th>
       <th><%= sortable "title1" %></th>
       <th><%= sortable "title2" %></th>
       <th><%= sortable "mash_title" %></th>
@@ -27,6 +28,7 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr>
+        <td><%= story.user_id %></td>
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>
