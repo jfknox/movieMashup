@@ -1,5 +1,12 @@
 
 <h1>Mash-Up Posters</h1>
+<%= form_tag posters_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", mash_title: nil %>
+  </p>
+<% end %>
+
 <hr/>
 <section id="poster_wrapper">
     <% @posters.each do |poster| %>
@@ -9,8 +16,11 @@
       <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
     </div>
     <% end %>
+
 </section>
 
 
-
 <!-- link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } -->
+ 
+
+

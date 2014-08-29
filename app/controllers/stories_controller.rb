@@ -6,9 +6,8 @@ class StoriesController < ApplicationController
  
 
 	def index
-		@stories = Story.search(params[:search]).order(sort_column + " " + sort_direction)
-		@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
-		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
+		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction)
+		
   end
 
 	def show

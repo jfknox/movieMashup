@@ -4,11 +4,9 @@ class PostersController < ApplicationController
 
   helper_method :sort_column, :sort_direction
   
-   
+
   def index
-  	@posters = Poster.search(params[:search]).order(sort_column + " " + sort_direction)
-    @asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
-    @desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
+    @posters = Poster.text_search(params[:query])
   end
 
 
@@ -57,14 +55,6 @@ class PostersController < ApplicationController
 		def poster_params
 			params.require(:poster).permit(:title1, :title2, :mash_title, :blurb, :user_id, :image_url)
        end
-
-    def sort_column
-      Poster.column_names.include?(params[:sort]) ? params[:sort] : "mash_title"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
 
 	 
 
