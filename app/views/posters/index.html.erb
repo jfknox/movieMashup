@@ -1,14 +1,28 @@
 <h1>Listing posters</h1>
 
+<div>
+  <%= form_tag stories_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+    <p class="search">
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :mash_title => nil %>
+    </p>
+  <% end %> 
+  <br/>
+</div>
+
+
 <table>
   <thead>
     <tr>
-      <th>Image url</th>
-      <th>Blurb</th>
-      <th>Title1</th>
-      <th>Title2</th>
-      <th>Mash title</th>
-    
+      <th> Poster </th>
+      <th><%= sortable "blurb" %></th>
+      <th><%= sortable "title1" %></th>
+      <th><%= sortable "title2" %></th>
+      <th><%= sortable "mash_title" %></th>
+      <th><%= sortable "created_at" %></th>
+  
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +35,7 @@
         <td><%= poster.title1 %></td>
         <td><%= poster.title2 %></td>
         <td><%= poster.mash_title %></td>
+        <td><%= poster.created_at %></td>
         <td><%= link_to 'Show', poster %></td>
         <td><%= link_to 'Edit', edit_poster_path(poster) %></td>
         <td><%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure?' } %></td>

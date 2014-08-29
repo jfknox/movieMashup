@@ -1,10 +1,14 @@
 class StoriesController < ApplicationController
 	before_filter :empty_story, only: [:index, :show, :edit, :new]
 	before_filter :empty_poster, only: [:index, :show, :edit, :new]
-
+ 
+ 	helper_method :sort_column, :sort_direction
+ 
 
 	def index
-		@stories = Story.all
+		@stories = Story.search(params[:search]).order(sort_column + " " + sort_direction)
+		@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
+		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
   	end
 
 	def show
@@ -55,7 +59,14 @@ class StoriesController < ApplicationController
 			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id)
     end
 
-  
+
+		def sort_column
+			Story.column_names.include?(params[:sort]) ? params[:sort] : "mash_title"
+		end
+
+		def sort_direction
+			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		end
 
   end
 
