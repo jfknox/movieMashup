@@ -1,7 +1,7 @@
 class PostersController < ApplicationController
   before_filter :empty_story, only: [:index, :show, :edit, :new]
   before_filter :empty_poster, only: [:index, :show, :edit, :new]
-  
+
   helper_method :sort_column, :sort_direction
   
    

@@ -16,6 +16,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*************************************
+GENERAL
+**************************************/
+
 .dark{
 	background-color: #000000;
 }
@@ -23,7 +27,24 @@
 .login{
 	height: 50px;
 	width: 300px;
-    color: #235A32
+  color: #235A32;
+}
+
+hr {
+	border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+h1 {
+	text-align: center;
+}
+
+.links {
+	display: inline-block;
 }
 
 /*************************************
@@ -100,5 +121,25 @@ LANDING PAGE
 
 .story_content {
 
+}
+
+/*************************************
+POSTERS INDEX
+**************************************/
+
+#poster_wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.poster {
+	display: inline-block;
+	width: 18%;
+	margin: 10px 0.8%;
+	vertical-align: top;
+}
+
+.p_index_img {
+	width: 95%;
 }
 

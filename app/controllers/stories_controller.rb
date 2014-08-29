@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
 		@stories = Story.search(params[:search]).order(sort_column + " " + sort_direction)
 		@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
 		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
-  	end
+  end
 
 	def show
 	  @story = Story.find(params[:id])
@@ -22,7 +22,6 @@ class StoriesController < ApplicationController
 		@story = Story.new 
 		
   	end
-
 
 	def create
 		@story = current_user.stories.new(story_params)
