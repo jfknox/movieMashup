@@ -1,8 +1,12 @@
 class StoriesController < ApplicationController
 
+	helper_method :sort_column, :sort_direction
+
 	def index
 		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction)
 		@poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=2")
+  			@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
+		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
   end
 
 	def show
