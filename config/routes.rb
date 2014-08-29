@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :stories
-  resources :posters
+  resources :stories do 
+    resources :comments
+  end
+  resources :posters do 
+    resources :comments
+  end
+
 
 
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
