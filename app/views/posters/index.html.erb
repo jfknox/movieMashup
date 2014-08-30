@@ -4,8 +4,9 @@
 <section id="poster_wrapper">
     <% @posters.each do |poster| %>
     <div class="poster">
-      <%= image_tag(poster.image_url, class: "p_index_img") %>
-      <%= link_to 'Details', poster, class: "links" %> |
+      <%= link_to image_tag(poster.image_url,class: "p_index_img"), poster %>
+      
+      
       <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
     </div>
     <% end %>
