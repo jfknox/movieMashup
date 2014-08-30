@@ -148,5 +148,36 @@ POSTERS INDEX
 
 .p_index_img {
 	width: 95%;
+	height: 425px;
 }
 
+/*************************************
+				SHOW PAGE
+**************************************/
+
+.title{
+	text-align: center;
+}
+.info{
+	padding-left: -50%;
+}
+.sub-title{
+	text-align: center;
+}
+.center{
+	margin-left: auto;
+    margin-right: auto;
+    width: 18%;
+    background-color: #FFFFFF;
+}
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+table, td {
+   border: 1px solid black;
+}
