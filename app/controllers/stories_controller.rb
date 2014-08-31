@@ -61,7 +61,7 @@ class StoriesController < ApplicationController
 
 	private
 		def story_params
-			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id)
+			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id, :total_votes)
     end
 
 
