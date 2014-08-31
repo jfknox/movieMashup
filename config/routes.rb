@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member { post :vote }
   end
   resources :poster_votes
+  resources :user
 
 
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
