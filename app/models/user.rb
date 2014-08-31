@@ -13,4 +13,18 @@ class User < ActiveRecord::Base
 		    user.save!
 	 	end
 	end
+
+	has_many :evaluations, class_name: "RSEvaluation", as: :source
+
+	has_reputation :votes, source: {reputation: :votes, of: :posters}, aggregated_by: :sum
+
+	def voted_for?(poster)
+	  evaluations.where(target_type: poster.class, target_id: poster.id).present?
+	end
+
+	def voted_for?(story)
+	  evaluations.where(target_type: story.class, target_id: story.id).present?
+	end
+
+
 end

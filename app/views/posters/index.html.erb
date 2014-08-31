@@ -13,13 +13,23 @@
 <%= render 'layouts/new_p' %>
 
 <hr/>
-<section id="poster_wrapper">
+<section id="poster_wrapper"> 
     <% @posters.each do |poster| %>
     <div class="poster">
       <%= link_to image_tag(poster.image_url,class: "p_index_img"), poster %>
       
       
       <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
+
+
+      <div class="poster">
+      
+         <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
+        <% if current_user && !current_user.voted_for?(poster) %>
+          | <%= link_to "up", vote_poster_path(poster, type: "up"), method: "post" %>
+          | <%= link_to "down", vote_poster_path(poster, type: "down"), method: "post" %>
+        <% end %>
+      </div>
     </div>
     <% end %>
 

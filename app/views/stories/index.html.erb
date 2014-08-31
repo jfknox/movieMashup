@@ -18,11 +18,13 @@
   <thead>
     <tr>
       <th><%= sortable "user_id", "Submited By" %></th>
+      <th> Vote </th>
       <th><%= sortable "title1" %></th>
       <th><%= sortable "title2" %></th>
       <th><%= sortable "mash_title" %></th>
       <th><%= sortable "content" %></th>
       <th><%= sortable "created_at", "Time Created" %></th>
+      <th><%= sortable "", "votes" %></th>
       <th colspan="3"></th>
     </tr>
   </thead> 
@@ -31,11 +33,19 @@
     <% @stories.each do |story| %>
       <tr>
         <td><%= story.user_id %></td>
+
+        <td><% if current_user && !current_user.voted_for?(story) %>
+          <%= link_to "up", vote_story_path(story, type: "up"), method: "post" %>
+          <%= link_to "down", vote_story_path(story, type: "down"), method: "post" %>
+          <% end %>
+        </td>
+
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>
         <td><%= story.content %></td>
         <td><%= story.created_at %></td>
+        <td><%= pluralize story.reputation_for(:votes).to_i, "vote" %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>

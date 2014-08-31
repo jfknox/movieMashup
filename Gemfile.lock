@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/NARKOZ/activerecord-reputation-system.git
+  revision: 01197ad78cac3136317b2884b61ed3da34c607d0
+  branch: rails4
+  specs:
+    activerecord-reputation-system (2.0.2)
+
+GIT
   remote: git://github.com/twbs/bootstrap-sass.git
   revision: 54317e5c02a4915e7a5def3a3e94cc2738a51ed3
   specs:
@@ -205,6 +212,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reputation-system!
   bootstrap-sass!
   capybara
   coffee-rails (~> 4.0.0)

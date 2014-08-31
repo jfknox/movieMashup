@@ -3,8 +3,15 @@ class PostersController < ApplicationController
   
 
   def index
-    @posters = Poster.text_search(params[:query])
+    @posters = Poster.find_with_reputation(:votes, :all, order: "votes desc").text_search(params[:query])
     @poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=2")
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @poster = Poster.find(params[:id])
+    @poster.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
 
@@ -23,7 +30,7 @@ class PostersController < ApplicationController
       redirect_to @poster
     else
       redirect_to "new"
-    end
+    end 
   end
 
   def show

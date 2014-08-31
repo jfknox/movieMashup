@@ -5,15 +5,16 @@ class Story < ActiveRecord::Base
  
   
 	def self.text_search(query)
-    if query
-       
-       search({mash_title: query, title1: query, title2: query, content: query}, false)
+	    if query
+	       
+	       search({mash_title: query, title1: query, title2: query, content: query}, false)
+	    else
+	      all
+    	end 
+    end
 
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
 
-    else
-      all
-    end 
-  end
 end
   

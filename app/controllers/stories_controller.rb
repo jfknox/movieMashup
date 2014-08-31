@@ -9,6 +9,14 @@ class StoriesController < ApplicationController
 		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
   end
 
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @story = Story.find(params[:id])
+    @story.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
+  end
+
+
 	def show
 	  @story = Story.find(params[:id])
 	  @commentable = @story
