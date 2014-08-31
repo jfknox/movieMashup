@@ -6,8 +6,10 @@
         <h4 class="modal-title" id="myModalLabel">New Poster</h4>
       </div>
       <div class="modal-body">
-      	<div><%= image_tag(@poster_call['movies'][0]['posters']['original']) %></div>
-        <div><%= image_tag(@poster_call['movies'][1]['posters']['original']) %></div>
+      	<div class="modal_posters">
+          <div class="rand_poster_div"><%= image_tag(@poster_call['movies'].sample['posters']['original'], class: "rand_poster") %></div>
+          <div class="rand_poster_div"><%= image_tag(@poster_call2['movies'].sample['posters']['original'], class: "rand_poster") %></div>
+        </div>
 				<%= form_for current_user.posters.new do |f| %>
 				  <div class="new_field"><%= f.label :image_url %>: </div>
 				  <div class="new_input"><%= f.text_field :image_url %><br/> </div>
