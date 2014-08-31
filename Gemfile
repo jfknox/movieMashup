@@ -60,8 +60,11 @@ gem 'thin', group: :production
 gem 'httparty', '0.11.0'
 gem 'randumb'
 
+
 gem 'textacular', '~> 3.0'
 
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
 gem 'pry'
+
+
 

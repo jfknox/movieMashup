@@ -48,10 +48,7 @@ h1 {
 }
 
 .logo {
-	height: 80px;
-	background-color: #FFF;
-	border-radius: 15px;
-	margin-left: 30%;
+	height: 200px;
 }
 
 /*************************************
@@ -147,11 +144,26 @@ POSTERS INDEX
 }
 
 .p_index_img {
+
 	width: 95%
+
 }
 
+.modal_posters {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.rand_poster_div {
+	display: inline-block;
+	margin: 0 17%;
+}
+
+.rand_poster {
+
+}
 /*************************************
-				SHOW PAGE
+POSTER SHOW PAGE
 **************************************/
 
 .title{
