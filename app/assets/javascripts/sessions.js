@@ -6,6 +6,10 @@
 // http://herrmedia.com
 // MIT License
 
+$(window).load(function(){
+    $('#openingModal').modal('show');
+});
+
 
 $.fn.flipcarousel = function(options) {
 

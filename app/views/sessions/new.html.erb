@@ -11,6 +11,18 @@
 </head>
 
 <body>
+  <div class="modal fade" id="openingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= link_to image_tag("MashUp_logo.png", class: "logo"), root_path %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <h1 class="landing_title">Mash-Up Posters</h1>
   <article title="item1"><h1></h1><span><%= image_tag(@posters[0].image_url) %></span></article>
   <article title="item2"><h1></h1><span><%= image_tag(@posters[1].image_url) %></span></article>
