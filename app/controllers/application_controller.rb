@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   include CommentsHelper
   include SessionsHelper
-
+  include UsersHelper
 
   private
     def current_user

@@ -18,7 +18,7 @@ match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 root 'sessions#new'
 
-resources :users, only: [:show, :edit, :update, :destroy]
+resources :users
 resources :sessions, only: [:new, :create, :destroy]
 
 # get 'signin' => 'sessions#new', as: :signin

@@ -44,6 +44,11 @@ gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 
 gem 'figaro'
 
+group :development do
+   gem 'better_errors'
+   gem 'binding_of_caller'
+   gem 'meta_request'
+end
 
 
 # Use Capistrano for deployment
@@ -59,8 +64,6 @@ ruby '2.1.2'
 gem 'thin', group: :production
 gem 'httparty', '0.11.0'
 gem 'randumb'
-
-
 gem 'textacular', '~> 3.0'
 
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'

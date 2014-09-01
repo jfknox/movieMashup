@@ -1,7 +1,13 @@
 <h1>Listing stories</h1>
 
-<%= link_to "New story", "#story_modal", "data-toggle" => "modal" %>
-<%= render 'layouts/new_s' %>
+
+<% if current_user.present? %>
+  <%= link_to "New story", "#story_modal", "data-toggle" => "modal" %>
+  <%= render 'layouts/new_s' %>
+<% else %>
+  <p> Sign in to create new story </p>
+<% end %>
+
 <div>
   <%= form_tag stories_path, method: :get do %>
   <%= hidden_field_tag :direction, params[:direction] %>
@@ -17,7 +23,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "user_id", "Submited By" %></th>
+     
       <th> Vote </th>
       <th><%= sortable "total_votes", "Votes" %></th>
       <th><%= sortable "title1" %></th>
@@ -33,14 +39,14 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr>
-        <td><%= story.user_id %></td>
+        
 
         <td><% if current_user && !current_user.voted_for?(story) %>
           <%= link_to "up", vote_story_path(story, type: "up"), method: "post" %>
           <%= link_to "down", vote_story_path(story, type: "down"), method: "post" %>
           <% end %>
         </td>
-        <td><%= pluralize story.reputation_for(:votes).to_i, "vote" %></td>
+        <td><%= pluralize story.reputation_for(:votes).to_i.inspect, "vote" %></td>
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>

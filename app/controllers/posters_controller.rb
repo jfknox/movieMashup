@@ -1,6 +1,6 @@
 class PostersController < ApplicationController
   helper_method :sort_column, :sort_direction, :current_user
-  
+ 
 
   def index
 
