@@ -1,11 +1,12 @@
 class StoriesController < ApplicationController
-	helper_method :sort_column, :sort_direction
+	helper_method :sort_column, :sort_direction, :current_user
+
 
 	def index
 		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction)
 		@poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
 		@poster_call2 = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
-  	@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
+  		@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
 		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
   end
 
@@ -61,7 +62,7 @@ class StoriesController < ApplicationController
 
 	private
 		def story_params
-			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id)
+			params.require(:story).permit(:title1, :title2, :mash_title, :content, :user_id, :total_votes)
     end
 
 

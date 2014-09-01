@@ -1,4 +1,10 @@
 
+
+  <%= pluralize @poster.reputation_for(:votes).to_i.inspect, "vote" %>
+  <%= link_to "up", vote_poster_path(@poster, type: "up"), method: "post" %>
+  <%= link_to "down", vote_poster_path(@poster, type: "down"), method: "post" %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
