@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
-	before_action :signed_in_user, except: [:new, :create]
 	before_action :correct_user, except: [:new, :create]
 
 
 	def show
 		@user = User.find(params[:id])
+		@current_user = @user
+		@posters = Poster.where(user_id: @user.id)
+		@stories = Story.where(user_id: @user.id)
 	end
 
 
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
 
 		def correct_user
 			find_user
-			redirect_to(current_user) unless current_user?(@user)
+			redirect_to (@user) unless @current_user != @user
 		end
 end
 
