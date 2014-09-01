@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+<<<<<<< HEAD
 posters = Poster.create([{image_url:"http://cdn.mos.totalfilm.com/images/e/et-alien.jpg", user_id:"1", blurb:"This alien eats more than Reeses Pieces", title1:"E.T.", title2:"Alien", mash_title:"A.L.I.E.N"},
 	{image_url:"http://www.bitrebels.com/wp-content/uploads/2011/10/Star-Wars-Mashup-Movie-Posters-8.jpg", user_id:"2", blurb:"Po, I am your father!", title1:"Star Wars", title2:"Kung Fu Panda", mash_title:"Panda Wars"},
 	{image_url:"http://www.empireonline.com/images/features/movie-poster-mash-up/muppets/1.jpg", user_id:"1", blurb:"Don't take my cookies!!", title1:"One Flew Over The Cukoo's Nest", title2:"Sesame Street", mash_title:"One Flew Over The Cookies Nest"},
