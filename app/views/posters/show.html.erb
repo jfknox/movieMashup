@@ -1,8 +1,10 @@
 
 
   <%= pluralize @poster.reputation_for(:votes).to_i.inspect, "vote" %>
-  <%= link_to "up", vote_poster_path(@poster, type: "up"), method: "post" %>
-  <%= link_to "down", vote_poster_path(@poster, type: "down"), method: "post" %>
+  <% if current_user && !current_user.voted_for?(@poster) %>
+          <%= link_to "up", vote_poster_path(@poster, type: "up"), method: "post" %>
+          <%= link_to "down", vote_poster_path(@poster, type: "down"), method: "post" %>
+          <% end %>
 
 
 <p id="notice"><%= notice %></p>
@@ -46,7 +48,7 @@
  -->
 
 
-<%= link_to 'Edit', edit_poster_path(@poster) %> |
+<%#= link_to 'Edit', edit_poster_path(@poster) %> |
 <%= link_to 'Back', posters_path %> |
 
   <%= render 'comments/comments' %>
