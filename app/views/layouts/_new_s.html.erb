@@ -7,8 +7,14 @@
       </div>
       <div class="modal-body">
         <div class="modal_posters">
-          <div class="rand_poster_div"><%= image_tag(@poster_call['movies'].sample['posters']['original'], class: "rand_poster") %></div>
-          <div class="rand_poster_div"><%= image_tag(@poster_call2['movies'].sample['posters']['original'], class: "rand_poster") %></div>
+          <div class="rand_poster_div">
+            <%= image_tag(@poster1['posters']['original'], class: "rand_poster") %><br/>
+            <%= @poster1['title'] %>
+          </div>
+          <div class="rand_poster_div">
+            <%= image_tag(@poster2['posters']['original'], class: "rand_poster") %><br/>
+            <%= @poster2['title'] %>
+          </div>
         </div>
         <%= form_for current_user.stories.new do |f| %>
           <div class="new_field"><%= f.label :title1 %>: </div>
