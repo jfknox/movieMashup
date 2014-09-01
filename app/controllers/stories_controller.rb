@@ -67,13 +67,13 @@ class StoriesController < ApplicationController
     end
 
 
-	def sort_column
-		Story.column_names.include?(params[:sort]) ? params[:sort] : "mash_title"
-	end
+		def sort_column
+			Story.column_names.include?(params[:sort]) ? params[:sort] : "mash_title"
+		end
 
-	def sort_direction
-		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		def sort_direction
+			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		end
 	end
 end
-
 
