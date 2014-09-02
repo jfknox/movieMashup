@@ -64,7 +64,4 @@ class PostersController < ApplicationController
 		def poster_params
 			params.require(:poster).permit(:title1, :title2, :mash_title, :blurb, :user_id, :image_url)
     end
-
-	 
-
 end

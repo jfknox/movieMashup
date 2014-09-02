@@ -64,4 +64,3 @@ class UsersController < ApplicationController
 			redirect_to (@user) unless @current_user != @user
 		end
 end
-
