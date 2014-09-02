@@ -3,6 +3,7 @@
     <div class="poster">
       <%= link_to image_tag(poster.image_url,class: "p_index_img"), poster %>
       <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
+      <td><%= link_to 'Destroy', poster, method: :delete, data: { confirm: 'Are you sure you want to delete your work?' } %></td>
       <div class="poster">
         <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
       </div>
@@ -36,7 +37,7 @@
         <td><%= story.created_at %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure you want to delete your work?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -31,7 +31,9 @@
 
                     <%= current_user.name %></strong><span class="caret"></span>
 
-                    ( <%= current_user.reputation_for(:votes).to_i %> )</a>
+                    ( <%=  current_user.reputation_for(:posters).to_i %> )
+                   
+                    </a>
 
                     
                   <ul class="dropdown-menu" role="menu">

@@ -46,15 +46,13 @@
           <%= link_to "down", vote_story_path(story, type: "down"), method: "post" %>
           <% end %>
         </td>
-        <td><%= pluralize story.reputation_for(:votes).to_i.inspect, "vote" %></td>
+        <td><%= pluralize story.reputation_for(:votes).to_i, "vote" %></td>
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>
         <td><%= story.content %></td>
         <td><%= story.created_at %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Read Me', story %></td>
       </tr>
     <% end %>
   </tbody>

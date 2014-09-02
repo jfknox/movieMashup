@@ -24,7 +24,7 @@
           <div class="new_field"><%= f.label :mash_title %>: </div>
           <div class="new_input"><%= f.text_field :mash_title %><br/>  </div>
           <div class="new_field"><%= f.label :content %>: </div>
-          <div class="new_input"><%= f.text_area :content %><br/>  </div>
+          <div class="new_input"><%= f.text_area :content,  :size => "75x10"  %><br/>  </div>
           <br/>
           <div id="sub_input"> <%= f.submit %></div> <br/>
         <% end %>
