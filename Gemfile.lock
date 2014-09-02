@@ -89,9 +89,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
-    kaminari (0.16.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -239,7 +236,6 @@ DEPENDENCIES
   httparty (= 0.11.0)
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari
   meta_request
   nyan-cat-formatter
   omniauth-facebook
