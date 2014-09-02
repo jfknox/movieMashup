@@ -1,14 +1,16 @@
-<h1>Listing stories</h1>
+<h1>Mash-Up Stories</h1>
 
 
-<% if current_user.present? %>
-  <%= link_to "New story", "#story_modal", "data-toggle" => "modal" %>
-  <%= render 'layouts/new_s' %>
-<% else %>
-  <p> Sign in to create new story </p>
-<% end %>
+<div class="new_button_div">
+  <% if current_user.present? %>
+    <%= link_to "Create New Mash-Up Story", "#story_modal", "data-toggle" => "modal", class: "btn btn-warning" %>
+    <%= render 'layouts/new_s' %>
+  <% else %>
+    <p> Sign in to create new story </p>
+  <% end %>
+</div>
 
-<div>
+<div class="search_div">
   <%= form_tag stories_path, method: :get do %>
   <%= hidden_field_tag :direction, params[:direction] %>
   <%= hidden_field_tag :sort, params[:sort] %>
@@ -29,8 +31,8 @@
       <th><%= sortable "title1" %></th>
       <th><%= sortable "title2" %></th>
       <th><%= sortable "mash_title" %></th>
-      <th><%= sortable "content" %></th>
-      <th><%= sortable "created_at", "Time Created" %></th>
+      <th><%= sortable "Story Content" %></th>
+      <th><%= sortable "created_at", "Date Created" %></th>
       
       <th colspan="3"></th>
     </tr>
@@ -39,20 +41,19 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr>
-        
-
-        <td><% if current_user && !current_user.voted_for?(story) %>
-          <%= link_to "up", vote_story_path(story, type: "up"), method: "post" %>
-          <%= link_to "down", vote_story_path(story, type: "down"), method: "post" %>
+        <td>
+          <% if current_user && !current_user.voted_for?(story) %>
+          <%= link_to image_tag("green-arrow.png"), vote_story_path(story, type: "up"), method: "post" %>
+          <%= link_to image_tag("red-arrow.png"), vote_story_path(story, type: "down"), method: "post" %>
           <% end %>
         </td>
         <td><%= pluralize story.reputation_for(:votes).to_i, "vote" %></td>
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>
-        <td><%= story.content %></td>
-        <td><%= story.created_at %></td>
-        <td><%= link_to 'Read Me', story %></td>
+        <td><%= truncate(story.content, :length => 250) %></td>
+        <td><%= story.created_at.strftime("%m/%d/%y") %></td>
+        <td><%= link_to 'Read Full Story', story %></td>
       </tr>
     <% end %>
   </tbody>

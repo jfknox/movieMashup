@@ -1,45 +1,38 @@
 
 <h1>Mash-Up Posters</h1>
 
+<div class="new_button_div">
+  <% if current_user.present? %>
+    <%= link_to "New poster", "#poster_modal", "data-toggle" => "modal", class: "btn btn-warning" %>
+    <%= render 'layouts/new_p' %>
+  <% else %>
+    <p> Sign in to create new poster </p>
+  <% end %>
+</div>
 
-<% if current_user.present? %>
-  <%= link_to "New poster", "#poster_modal", "data-toggle" => "modal" %>
-  <%= render 'layouts/new_p' %>
-<% else %>
-  <p> Sign in to create new poster </p>
-<% end %>
+<div class="search_div">
+  <%= form_tag posters_path, method: :get do %>
+    <p>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", mash_title: nil %>
+    </p>
+  <% end %>
+</div>
 
-<%= form_tag posters_path, method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", mash_title: nil %>
-  </p>
-<% end %>
-
-
-
-
-<hr/>
-<section id="poster_wrapper"> 
+<section id="poster_wrapper">
+<hr/> 
     <% @posters.each do |poster| %>
     <div class="poster">
       <%= link_to image_tag(poster.image_url,class: "p_index_img"), poster %>
-      
-      
-      <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
-
-
-      <div class="poster">
-      
-         <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
+      <div class="voting_div">
+        <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
         <% if current_user && !current_user.voted_for?(poster) %>
-          | <%= link_to "up", vote_poster_path(poster, type: "up"), method: "post" %>
-          | <%= link_to "down", vote_poster_path(poster, type: "down"), method: "post" %>
+          | <%= link_to image_tag("green-arrow.png"), vote_poster_path(poster, type: "up"), method: "post" %>
+          | <%= link_to image_tag("red-arrow.png"), vote_poster_path(poster, type: "down"), method: "post" %>
         <% end %>
       </div>
     </div>
     <% end %>
-
 </section>
 
 

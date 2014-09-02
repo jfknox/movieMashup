@@ -1,54 +1,26 @@
-
-
-  <%= pluralize @poster.reputation_for(:votes).to_i.inspect, "vote" %>
-  <% if current_user && !current_user.voted_for?(@poster) %>
-          <%= link_to "up", vote_poster_path(@poster, type: "up"), method: "post" %>
-          <%= link_to "down", vote_poster_path(@poster, type: "down"), method: "post" %>
-          <% end %>
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <h2><div class="title"><%= @poster.mash_title %></div></h2>
-  <div class="sub-title"><h4><%= @poster.blurb %></h4></div>
-</p>
-
- 
-  <div class="center"><%= link_to image_tag(@poster.image_url) %></div>
-</p> 
-
-
-  <div class="info">
-   <strong> 
-    <h2><h1><div class="mash"><%= @poster.title1 %> V.S. <%= @poster.title2 %></h1></div></h2>
-   </strong>
+<%= link_to 'Back to all posters', posters_path, class: "btn btn-primary" %> 
+<section class="poster_show">
+  <h1><%= @poster.mash_title %></h1>
+  <div class="sub-title">
+    <h4><%= @poster.blurb %></h4>
   </div>
-
-<!-- 
-<p>
-  <strong>User:</strong> 
-  <%= @poster.user_id %> 
-</p>
-
-<p>
-  <strong>Blurb:</strong>
-  <%= @poster.blurb %>
-</p>
-
-<p>
-  <strong>Title1:</strong>
-  <%= @poster.title1 %>
-</p>
-
-<p>
-  <strong>Title2:</strong>
-  <%= @poster.title2 %>
-</p>
- -->
-
-
-<%#= link_to 'Edit', edit_poster_path(@poster) %> |
-<%= link_to 'Back', posters_path %> |
-
-  <%= render 'comments/comments' %>
+  <hr/>
+  <div class="show_img_div">
+    <%= image_tag(@poster.image_url, class: "poster_show_img") %>
+  </div>
+  <div class="info_div">
+    <div class="mash">
+      <h3><%= @poster.title1 %> / <%= @poster.title2 %></h3>
+    </div>
+    <div class="voting_div">
+      <%= pluralize @poster.reputation_for(:votes).to_i.inspect, "vote" %>
+      <% if current_user && !current_user.voted_for?(@poster) %>
+        <%= link_to image_tag("green-arrow.png"), vote_poster_path(@poster, type: "up"), method: "post" %>
+        <%= link_to image_tag("red-arrow.png"), vote_poster_path(@poster, type: "down"), method: "post" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="comment_div">
+    <%= render 'comments/comments' %>
+  </div>
+</section>

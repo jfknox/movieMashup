@@ -1,37 +1,29 @@
 
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back to all stories', stories_path, class: "btn btn-primary" %>
+<section class="story_show">
+  <h1>
+    <%= @story.mash_title %>
+  </h1>
+  <p>
+    <strong>Title 1:</strong>
+    <%= @story.title1 %>
+  </p>
+  <p>
+    <strong>Title 2:</strong>
+    <%= @story.title2 %>
+  </p>
+  <p>
+    <%= @story.content %>
+  </p>
 
-  <%= pluralize @story.reputation_for(:vote).to_i.inspect, "vote" %>
-  <% if current_user && !current_user.voted_for?(@story) %>
-          <%= link_to "up", vote_story_path(@story, type: "up"), method: "post" %>
-          <%= link_to "down", vote_story_path(@story, type: "down"), method: "post" %>
+  <div>
+    <%= pluralize @story.reputation_for(:votes).to_i.inspect, "vote" %>
+    <% if current_user && !current_user.voted_for?(@story) %>
+        <%= link_to image_tag("green-arrow.png"), vote_story_path(@story, type: "up"), method: "post" %>
+        <%= link_to image_tag("red-arrow.png"), vote_story_path(@story, type: "down"), method: "post" %>
     <% else %>
-    	<p>Please Sign in to vote</p>
+      <p>Please Sign in to vote</p>
     <% end %>
-
-<p>
-  <strong>content:</strong>
-  <%= @story.content %>
-</p>
-
-<p>
-  <strong>Title1:</strong>
-  <%= @story.title1 %>
-</p>
-
-<p>
-  <strong>Title2:</strong>
-  <%= @story.title2 %>
-</p>
-
-<p>
-  <strong>Mash title:</strong>
-  <%= @story.mash_title %>
-</p>
-
-
-<%#= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
-
-
+  </div>
   <%= render 'comments/comments' %>
+</section>
