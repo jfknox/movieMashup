@@ -16,9 +16,9 @@
             <%= @poster2['title'] %>
           </div>
         </div>
-        <%= form_for current_user.stories.new do |f| %>
-          <div class="new_input"><% f.hidden_field :title1, :value => @poster1['title'] %></div>
-          <div class="new_input"><% f.hidden_field :title2, :value => @poster2['title'] %></div>
+        <%= form_for @story do |f| %>
+          <div class="new_input"><%= f.hidden_field :title1, :value => @poster1['title'] %></div>
+          <div class="new_input"><%= f.hidden_field :title2, :value => @poster2['title'] %></div>
           <div class="new_field"><%= f.label :mash_title %>: </div>
           <div class="new_input"><%= f.text_field :mash_title %><br/>  </div>
           <div class="new_field"><%= f.label :content %>: </div>

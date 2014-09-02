@@ -8,6 +8,7 @@ class PostersController < ApplicationController
     @poster_call2 = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
     @poster1 = @poster_call['movies'].sample
     @poster2 = @poster_call2['movies'].sample
+    @poster = Poster.new
   end
 
   def vote
@@ -22,10 +23,6 @@ class PostersController < ApplicationController
     @poster = Poster.new
   end
 
-  def edit
-  	@poster = Poster.find params[:id]
-  end
-
   def create
     @poster = current_user.posters.new(poster_params)
     if @poster.save
@@ -34,6 +31,10 @@ class PostersController < ApplicationController
     else
       redirect_to "new"
     end 
+  end
+
+  def edit
+  	@poster = Poster.find params[:id]
   end
 
   def show
@@ -54,8 +55,8 @@ class PostersController < ApplicationController
 
 	def destroy
 		@poster = Poster.find(params[:id])
-    	@poster.destroy
-    	redirect_to posters_path
+    @poster.destroy
+    redirect_to current_user
   end
 
 	private

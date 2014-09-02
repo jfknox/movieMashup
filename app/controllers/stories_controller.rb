@@ -10,7 +10,7 @@ class StoriesController < ApplicationController
 		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
 		@poster1 = @poster_call['movies'].sample
     @poster2 = @poster_call2['movies'].sample
-
+    @story = Story.new
 end
 
   def vote
@@ -60,7 +60,7 @@ end
 	def destroy
 		@story = Story.find(params[:id])
 		@story.destroy
-		redirect_to stories_path
+		redirect_to current_user
 	end
 
 	private

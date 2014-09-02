@@ -10,7 +10,7 @@
         <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
       </div>
       <%= link_to "Edit", edit_poster_path %> |
-      <%= link_to "Delete", @poster, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to "Delete", poster, method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
     <% end %>
 </section>

@@ -2,6 +2,11 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy 
   
+  validates :content, presence: true
+  validates :user_id, presence: true
+  validates :title1, presence: true
+  validates :title2, presence: true
+  validates :mash_title, presence: true
  
   
 	def self.text_search(query)

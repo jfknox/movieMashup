@@ -16,17 +16,17 @@
             <%= @poster2['title'] %>
           </div>
         </div>
-				<%= form_for current_user.posters.new do |f| %>
+				<%= form_for @poster do |f| %>
 				  <div class="new_field"><%= f.label :image_url %>: </div>
 				  <div class="new_input"><%= f.text_field :image_url %><br/> </div>
 				  <div class="new_field"><%= f.label :blurb %>: </div>
 				  <div class="new_input"><%= f.text_field :blurb %><br/> </div>
-				  <div class="new_input"><% f.hidden_field :title1, :value => @poster1['title'] %></div>
-				  <div class="new_input"><% f.hidden_field :title2, :value => @poster2['title'] %></div>
+				  <div class="new_input"><%= f.hidden_field :title1, :value => @poster1['title'] %></div>
+				  <div class="new_input"><%= f.hidden_field :title2, :value => @poster2['title'] %></div>
 				  <div class="new_field"><%= f.label :mash_title %>: </div>
 				  <div class="new_input"><%= f.text_field :mash_title %><br/>  </div>
 				  <br/>
-				  <div id="sub_input"> <%= f.submit %></div> <br/>
+				  <div id="sub_input"><%= f.submit %></div> <br/>
 				<% end %>
       </div>
       <div class="modal-footer">
