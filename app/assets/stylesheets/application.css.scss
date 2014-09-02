@@ -46,6 +46,7 @@ h1 {
 
 h3 {
 	text-align: center;
+	font-family: 'Metal Mania', cursive;
 }
 
 .links {
@@ -154,13 +155,31 @@ LANDING PAGE
 
 }
 
+
+/*************************************
+INDEX PAGES
+**************************************/
+
+.search_div {
+	float: left;
+	margin-left: 20px;
+}
+
+.new_button_div {
+	float: right;
+	margin-right: 20px;
+}
+
+
+
 /*************************************
 POSTERS INDEX
 **************************************/
 
 #poster_wrapper {
 	width: 90%;
-	margin: 0 auto;
+	margin: 65px auto 0;
+	clear: both;
 }
 
 .poster {
@@ -170,10 +189,12 @@ POSTERS INDEX
 	vertical-align: top;
 }
 
+.voting_div {
+	margin-top: 10px;
+}
+
 .p_index_img {
-
 	width: 95%
-
 }
 
 .modal_posters {
@@ -187,39 +208,101 @@ POSTERS INDEX
 	margin: 0 auto;
 }
 
+.vote_count {
+	float: left;
+}
+
+.voting_icons {
+	float: right;
+}
+
 
 /*************************************
 POSTER SHOW PAGE
 **************************************/
 
-.title{
-	text-align: center;
-}
-.info{
-	padding-left: -50%;
-}
-.sub-title{
-	text-align: center;
-}
-.center{
-	margin-left: auto;
-    margin-right: auto;
-    width: 18%;
-    background-color: #FFFFFF;
-}
-table {
-    border-collapse: collapse;
+.poster_show {
+	width: 60%;
+	margin: 0 auto;
 }
 
-td {
-    padding-top: 5px;
-    padding-bottom: 5px;
+.title {
+	text-align: center;
 }
-table, td {
-   border: 1px solid black;
+
+.sub-title {
+	text-align: center;
 }
+
+.show_img_div {
+	width: 100%;
+}
+
+.poster_show_img {
+	width: 42%;
+	margin: 0 29%;
+}
+
+.info_div {
+	width: 70%;
+	margin: 0 15%;
+}
+
+.mash {
+	float: left;
+}
+
+.voting_div {
+	float: right;
+}
+
+.comment_div {
+	clear: both;
+}
+
 
 
 /*************************************
 STORIES INDEX
 **************************************/
+
+table {
+	clear: both;
+}
+
+tbody tr td {
+	padding: 10px;
+	padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid black;
+}
+
+
+/*************************************
+STORIES SHOW PAGE
+**************************************/
+
+.story_show {
+	width: 60%;
+	margin: 0 auto;
+}
+
+
+/*************************************
+COMMENTS
+**************************************/
+
+.new_comment {
+	text-align: center;
+}
+
+
+
+/*************************************
+USER SHOW PAGE (PROFILE)
+**************************************/
+
+.user_stories {
+	width: 95%;
+	margin: 0 auto;
+}

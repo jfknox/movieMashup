@@ -10,6 +10,7 @@ class StoriesController < ApplicationController
 		@desc = "http://upload.wikimedia.org/wikipedia/en/e/e0/Black_Down_Arrow.png"
 		@poster1 = @poster_call['movies'].sample
     @poster2 = @poster_call2['movies'].sample
+  end
 
   def vote
     value = params[:type] == "up" ? 1 : -1
@@ -74,6 +75,5 @@ class StoriesController < ApplicationController
 		def sort_direction
 			%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
 		end
-	end
 end
 

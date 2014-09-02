@@ -1,4 +1,4 @@
-    source 'https://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,7 +41,6 @@ end
 
 # Bootstrap
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
-
 gem 'figaro'
 
 group :development do
@@ -65,7 +64,6 @@ gem 'thin', group: :production
 gem 'httparty', '0.11.0'
 gem 'randumb'
 gem 'textacular', '~> 3.0'
-
 gem 'activerecord-reputation-system', github: 'NARKOZ/activerecord-reputation-system', branch: 'rails4'
 gem 'pry'
 

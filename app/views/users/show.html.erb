@@ -1,26 +1,29 @@
+<h1>Your Mash-Up Posters</h1>
+
 <section id="poster_wrapper"> 
     <% @posters.each do |poster| %>
     <div class="poster">
       <%= link_to image_tag(poster.image_url,class: "p_index_img"), poster %>
-      <%= link_to 'Edit', edit_poster_path(poster), class: "links" %>
-      <div class="poster">
+      <div class="voting_div">
         <%= pluralize poster.reputation_for(:votes).to_i, "vote" %>
       </div>
+      <%= link_to "Edit", edit_poster_path %> |
+      <%= link_to "Delete", @poster, method: :delete, data: {confirm: 'Are you sure?'} %>
     </div>
     <% end %>
 </section>
+<hr/>
+<h1>Your Mash-Up Stories</h1>
 
-<table>
+<table class="user_stories">
   <thead>
     <tr>
-     
       <th> Total </th>
       <th> Title 1 </th>
       <th> Title 2 </th>
       <th> Mash Title </th>
       <th> Content </th>
       <th> Created </th>
-      
       <th colspan="3"></th>
     </tr>
   </thead> 
@@ -32,11 +35,11 @@
         <td><%= story.title1 %></td>
         <td><%= story.title2 %></td>
         <td><%= story.mash_title %></td>
-        <td><%= story.content %></td>
-        <td><%= story.created_at %></td>
+        <td><%= truncate(story.content, :length => 250) %></td>
+        <td><%= story.created_at.strftime("%m/%d/%y") %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,45 +1,39 @@
 <hr>
-<h1>Comments</h1>
+<h3>Comments</h3>
 <hr>
 
 
 <div class="comments">
- <div class="move"> <table>
-    <thead>
-      <tr>
-        <strong>Comments</strong>
-        <th colspan="3"></th>
-      </tr>
-    </thead> 
-
-    <tbody>
-      <% @comments.each do |comment| %>
-        <tr>
-          <td><%= comment.user_id %></td>
-          <td><%= comment.content %></td>
-        </tr>
-
-      <% end %>
-    </tbody>
-  </table></div>
+  <div class="move"> 
+    <table>
+      <tbody>
+        <% @comments.each do |comment| %>
+          <tr>
+            <td><%= comment.user_id %></td>
+            <td><%= comment.content %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <hr>
+<div class="new_comment">
+  <%= form_for [@commentable, @comment] do |f| %>
+   <% if current_user.present? %>
 
-<%= form_for [@commentable, @comment] do |f| %>
- <% if current_user.present? %>
-
-  <strong>Leave Your Comment</strong>
- 
-    <div class="field">
-    <%= f.text_area :content, rows: 8 %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Submit Post" %>
-  </div>
-
+    <strong>Leave Your Comment</strong>
+   
+      <div class="field">
+      <%= f.text_area :content, rows: 8, cols: 50 %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit Comment" %>
+    </div>
   <% else %>
     <p> Sign in to leave comments </p>
-<% end %>
+  <% end %>
+</div>
 <% end %>
 
 

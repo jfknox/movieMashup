@@ -26,16 +26,16 @@
     </div>
   </div>
   <h1 class="landing_title">Mash-Up Posters</h1>
-  <article title="item1"><span><%= image_tag(@posters[0].image_url) %></span></article>
-  <article title="item2"><span><%= image_tag(@posters[1].image_url) %></span></article>
-  <article title="item3"><span><%= image_tag(@posters[2].image_url) %></span></article>
-  <article title="item4"><span><%= image_tag(@posters[3].image_url) %></span></article>
-  <article title="item5"><span><%= image_tag(@posters[4].image_url) %></span></article>
-  <article title="item6"><span><%= image_tag(@posters[5].image_url) %></span></article>
-  <article title="item7"><span><%= image_tag(@posters[6].image_url) %></span></article>
-  <article title="item8"><span><%= image_tag(@posters[7].image_url) %></span></article>
-  <article title="item9"><span><%= image_tag(@posters[8].image_url) %></span></article>
-  <article title="item10"><span><%= image_tag(@posters[9].image_url) %></span></article>
+  <article title="item1"><span><%= link_to image_tag(@posters[0].image_url), poster_path(@posters[0]) %></span></article>
+  <article title="item2"><span><%= link_to image_tag(@posters[1].image_url), poster_path(@posters[1]) %></span></article>
+  <article title="item3"><span><%= link_to image_tag(@posters[2].image_url), poster_path(@posters[2]) %></span></article>
+  <article title="item4"><span><%= link_to image_tag(@posters[3].image_url), poster_path(@posters[3]) %></span></article>
+  <article title="item5"><span><%= link_to image_tag(@posters[4].image_url), poster_path(@posters[4]) %></span></article>
+  <article title="item6"><span><%= link_to image_tag(@posters[5].image_url), poster_path(@posters[5]) %></span></article>
+  <article title="item7"><span><%= link_to image_tag(@posters[6].image_url), poster_path(@posters[6]) %></span></article>
+  <article title="item8"><span><%= link_to image_tag(@posters[7].image_url), poster_path(@posters[7]) %></span></article>
+  <article title="item9"><span><%= link_to image_tag(@posters[8].image_url), poster_path(@posters[8]) %></span></article>
+  <article title="item10"><span><%= link_to image_tag(@posters[9].image_url), poster_path(@posters[9]) %></span></article>
 
 <script>
   $('article').flipcarousel({
@@ -52,17 +52,20 @@
     <div class="landing_story">
       <div class="story_title"><%= @stories[0].mash_title %></div>
       <hr/ class="landing_divider">
-      <div class="story_content"><%= @stories[0].content %></div>
+      <div class="story_content"><%= truncate(@stories[0].content, :length => 250) %></div>
+      <%= link_to "Read more", story_path(@stories[0]) %>
     </div>
     <div class="landing_story">
       <div class="story_title"><%= @stories[1].mash_title %></div>
       <hr/ class="landing_divider">
-      <div class="story_content"><%= @stories[1].content %></div>
+      <div class="story_content"><%= truncate(@stories[1].content, :length => 250) %></div>
+      <%= link_to "Read more", story_path(@stories[1]) %>
     </div>
     <div class="landing_story">
       <div class="story_title"><%= @stories[2].mash_title %></div>
       <hr/ class="landing_divider">
-      <div class="story_content"><%= @stories[2].content %></div>
+      <div class="story_content"><%= truncate(@stories[2].content, :length => 250) %></div>
+      <%= link_to "Read more", story_path(@stories[2]) %>
     </div>
   </div>
     
