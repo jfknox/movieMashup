@@ -31,8 +31,8 @@
 
                     <%= current_user.name %></strong><span class="caret"></span>
 
+                    ( <%=  current_user.reputation_for(:stories).to_i %> )
                     ( <%=  current_user.reputation_for(:posters).to_i %> )
-                   
                     </a>
 
                     

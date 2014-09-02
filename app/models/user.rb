@@ -16,17 +16,15 @@ class User < ActiveRecord::Base
 
 	has_many :evaluations, class_name: "RSEvaluation", as: :source
 
+	
+	has_reputation :posters, source: {reputation: :karma, of: :posters}, aggregated_by: :sum
 
 
 	has_reputation :stories, source: {reputation: :votes, of: :stories}, aggregated_by: :sum
-	has_reputation :posters, source: {reputation: :votes, of: :posters}, aggregated_by: :sum
 
-	def voted_for?(poster)
-	  evaluations.where(target_type: poster.class, target_id: poster.id).present?
-	end
 
-	def voted_for?(story)
-	  evaluations.where(target_type: story.class, target_id: story.id).present?
+	def voted_for?(variable)
+	  evaluations.where(target_type: variable.class, target_id: variable.id).present?
 	end
 
 

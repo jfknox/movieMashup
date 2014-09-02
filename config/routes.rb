@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   resources :posters do 
     resources :comments
-    member { post :vote }
+    member { post :karma }
   end
-  resources :poster_votes
+  resources :poster_karma
 
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

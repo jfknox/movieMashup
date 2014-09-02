@@ -15,8 +15,8 @@
     <div class="voting_div">
       <%= pluralize @poster.reputation_for(:votes).to_i.inspect, "vote" %>
       <% if current_user && !current_user.voted_for?(@poster) %>
-        <%= link_to image_tag("green-arrow.png"), vote_poster_path(@poster, type: "up"), method: "post" %>
-        <%= link_to image_tag("red-arrow.png"), vote_poster_path(@poster, type: "down"), method: "post" %>
+        <%= link_to image_tag("green-arrow.png"), karma_poster_path(@poster, type: "up"), method: "post" %>
+        <%= link_to image_tag("red-arrow.png"), karma_poster_path(@poster, type: "down"), method: "post" %>
       <% end %>
     </div>
   </div>

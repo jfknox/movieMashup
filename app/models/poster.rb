@@ -13,7 +13,7 @@ class Poster < ActiveRecord::Base
   end
 
 
-  	has_reputation :votes, source: :user, aggregated_by: :sum
+  	has_reputation :karma, source: :user, aggregated_by: :sum
 
 	
 
