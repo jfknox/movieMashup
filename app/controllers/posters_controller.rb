@@ -3,7 +3,7 @@ class PostersController < ApplicationController
  
 
   def index
-    @posters = Poster.find_with_reputation(:votes, :all, order: "votes desc").text_search(params[:query])
+    @posters = Poster.find_with_reputation(:karma, :all, order: "karma desc").text_search(params[:query])
     @poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
     @poster_call2 = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
     @poster1 = @poster_call['movies'].sample
@@ -11,11 +11,11 @@ class PostersController < ApplicationController
     @poster = Poster.new
   end
 
-  def vote
+  def karma
     value = params[:type] == "up" ? 1 : -1
     @poster = Poster.find(params[:id])
-    @poster.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
+    @poster.add_or_update_evaluation(:karma, value, current_user)
+    redirect_to :back
   end
 
 

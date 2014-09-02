@@ -18,7 +18,6 @@ class Story < ActiveRecord::Base
     	end 
     end
  
-
   has_reputation :votes, source: :user, aggregated_by: :sum
 
 end

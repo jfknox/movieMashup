@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
 
 
 	def index
-		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction)
+		@stories = Story.text_search(params[:query]).order(sort_column + " " + sort_direction).find_with_reputation(:votes, :all, order: "votes desc")
 		@poster_call = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
 		@poster_call2 = HTTParty.get("http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=2dua5msv326ykbsw2crqbjf6&limit=10")
   	@asc = "http://www.clipartbest.com/cliparts/nTX/EGB/nTXEGBLTB.png"
@@ -13,13 +13,24 @@ class StoriesController < ApplicationController
     @story = Story.new
 end
 
+
+    def total_votes
+
+    	
+    	@total_votes = reputation_for(@story)
+    end
+	
+
   def vote
     value = params[:type] == "up" ? 1 : -1
     @story = Story.find(params[:id])
     @story.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
+    redirect_to :back
   end
 
+  def total
+  	@total = reputation_for(@story)
+  end
 
 	def show
 	  @story = Story.find(params[:id])
